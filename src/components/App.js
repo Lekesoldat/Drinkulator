@@ -11,7 +11,7 @@ class App extends React.Component {
   };
 
   onSearchSubmit = async term => {
-    const response = await search("/products", {search: term});
+    const response = await search({search: term});
     this.setState({results: response.data})
   }
 
