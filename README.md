@@ -1,0 +1,2 @@
+# drinkulator
+Calculate drink worth.
