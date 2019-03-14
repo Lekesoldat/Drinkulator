@@ -1,9 +1,9 @@
-import React from 'react';
-import bolaget from '../api/bolaget';
-import SearchBar from './SearchBar';
-import DrinkList from './DrinkList'
+import React from "react";
+import bolaget from "../api/bolaget";
+import SearchBar from "./SearchBar";
+import DrinkList from "./DrinkList";
 
-const search = params => bolaget.get("/products",  { params } );
+const search = params => bolaget.get("/products", { params });
 
 class App extends React.Component {
   state = {
@@ -11,17 +11,21 @@ class App extends React.Component {
   };
 
   onSearchSubmit = async term => {
-    const response = await search({search: term});
-    this.setState({results: response.data})
-  }
+    const response = await search({
+      search: term,
+      sort: "price_per_liter:asc"
+    });
+    this.setState({ results: response.data });
+  };
 
   render() {
     return (
-      <div className="ui container" style={{marginTop: '10px'}}>
-        <SearchBar onSubmit={this.onSearchSubmit}/>
-        <DrinkList results={this.state.results}/>
+      <div className="ui container" style={{ marginTop: "10px" }}>
+        <SearchBar onSubmit={this.onSearchSubmit} />
+        <DrinkList results={this.state.results} />
       </div>
-    )}
+    );
+  }
 }
 
 export default App;

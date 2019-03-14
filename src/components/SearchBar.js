@@ -1,23 +1,23 @@
-import React from 'react';
+import React from "react";
 
 class SearchBar extends React.Component {
-  state = {term: ''};
+  state = { term: "" };
 
   onFormSubmit = e => {
     e.preventDefault();
     this.props.onSubmit(this.state.term);
-  }
-  
+  };
+
   render() {
-    return(
+    return (
       <div className="ui segment">
         <form className="ui form" onSubmit={this.onFormSubmit}>
           <div className="field">
-          <label>Drink Search</label>
-          <input
-            type="text"
-            value={this.state.term}
-            onChange={e => this.setState({term: e.target.value})}
+            <label>Drink Search</label>
+            <input
+              type="text"
+              value={this.state.term}
+              onChange={e => this.setState({ term: e.target.value })}
             />
           </div>
         </form>
@@ -25,4 +25,4 @@ class SearchBar extends React.Component {
     );
   }
 }
-export default SearchBar; 
+export default SearchBar;

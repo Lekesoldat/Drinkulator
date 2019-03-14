@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const DrinkList = props => {
   const results = props.results.map(result => {
@@ -6,12 +6,14 @@ const DrinkList = props => {
       <div className="ui segment">
         <div>Name: {result.name}</div>
         <div>Additional name: {result.additional_name}</div>
-        <div>Price: {result.price.amount} {result.price.currency}</div>
+        <div>
+          Price: {result.price.amount} {result.price.currency}
+        </div>
       </div>
-    )
+    );
   });
 
   return <div>{results}</div>;
-}
+};
 
 export default DrinkList;
