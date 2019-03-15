@@ -1,5 +1,4 @@
 import React from 'react';
-import { MLperNOK, NOKperML } from '../calculation';
 import Drink from './Drink';
 import { Card } from 'semantic-ui-react';
 
