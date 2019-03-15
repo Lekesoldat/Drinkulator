@@ -2,6 +2,7 @@ import React from 'react';
 import bolaget from '../api/bolaget';
 import SearchBar from './SearchBar';
 import DrinkList from './DrinkList';
+import { Container } from 'semantic-ui-react';
 
 const search = params => bolaget.get('/products', { params });
 
@@ -23,10 +24,10 @@ class Lookup extends React.Component {
 
   render() {
     return (
-      <div className='ui container' style={{ marginTop: '10px' }}>
+      <Container>
         <SearchBar onSubmit={this.onSearchSubmit} />
         <DrinkList results={this.state.results} />
-      </div>
+      </Container>
     );
   }
 }
