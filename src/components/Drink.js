@@ -30,7 +30,7 @@ class Drink extends React.Component {
             this.props.result.volume_in_milliliter,
             parseFloat(this.props.result.alcohol),
             this.props.result.price.amount
-          ) + ' kr/ml alkohol'
+          ) + ' kr per ml alkohol'
         }
         description={'Volume: ' + this.props.result.volume_in_milliliter + 'ml'}
       />
