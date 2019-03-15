@@ -1,6 +1,6 @@
 import React from 'react';
 import Drink from './Drink';
-import { Card } from 'semantic-ui-react';
+import { Card, Segment } from 'semantic-ui-react';
 
 const DrinkList = props => {
   if (props.results.length === 0) {
@@ -11,7 +11,11 @@ const DrinkList = props => {
     return <Drink result={result} />;
   });
 
-  return <Card.Group centered>{results}</Card.Group>;
+  return (
+    <Segment>
+      <Card.Group centered>{results}</Card.Group>
+    </Segment>
+  );
 };
 
 export default DrinkList;
