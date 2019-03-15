@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from 'semantic-ui-react';
-import { MLperNOK, NOKperML } from '../calculation';
+import { NOKperML } from '../calculation';
 
 // TODO: Fix additional_name can be null
 class Drink extends React.Component {
