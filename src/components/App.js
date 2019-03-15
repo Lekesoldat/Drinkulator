@@ -1,31 +1,32 @@
-import React from "react";
-import bolaget from "../api/bolaget";
-import SearchBar from "./SearchBar";
-import DrinkList from "./DrinkList";
+import React from 'react';
+import { Container, Tab } from 'semantic-ui-react';
+import Lookup from './Lookup';
 
-const search = params => bolaget.get("/products", { params });
-
-class App extends React.Component {
-  state = {
-    results: []
-  };
-
-  onSearchSubmit = async term => {
-    const response = await search({
-      search: term,
-      sort: "price_per_liter:asc"
-    });
-    this.setState({ results: response.data });
-  };
-
-  render() {
-    return (
-      <div className="ui container" style={{ marginTop: "10px" }}>
-        <SearchBar onSubmit={this.onSearchSubmit} />
-        <DrinkList results={this.state.results} />
-      </div>
-    );
+const panes = [
+  {
+    menuItem: 'Home',
+    render: () => (
+      <Tab.Pane attached={false}>Home content to be added.</Tab.Pane>
+    )
+  },
+  {
+    menuItem: 'Lookup',
+    render: () => (
+      <Tab.Pane attached={true}>
+        <Lookup />
+      </Tab.Pane>
+    )
+  },
+  {
+    menuItem: 'Something',
+    render: () => <Tab.Pane attached={false}>Something to be added.</Tab.Pane>
   }
-}
+];
 
-export default App;
+export default () => {
+  return (
+    <Container>
+      <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
+    </Container>
+  );
+};
