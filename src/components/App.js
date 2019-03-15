@@ -12,7 +12,7 @@ const panes = [
   {
     menuItem: 'Lookup',
     render: () => (
-      <Tab.Pane attached={true}>
+      <Tab.Pane attached={false}>
         <Lookup />
       </Tab.Pane>
     )
