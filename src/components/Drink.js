@@ -15,7 +15,6 @@ const colors = [
   'black'
 ];
 
-// TODO: Fix additional_name can be null
 class Drink extends React.Component {
   KRperML = KRperML(
     this.props.result.volume_in_milliliter,
@@ -27,7 +26,11 @@ class Drink extends React.Component {
     return (
       <Card
         header={
-          this.props.result.name + ' ' + this.props.result.additional_name
+          this.props.result.name +
+          ' ' +
+          (this.props.result.additional_name
+            ? this.props.result.additional_name
+            : '')
         }
         color={colors[Math.floor(Math.random() * colors.length)]}
         meta={
