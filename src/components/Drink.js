@@ -1,7 +1,8 @@
 import React from 'react';
 import { Card } from 'semantic-ui-react';
-import { NOKperML } from '../calculation';
+import { KRperML, tubis } from '../calculation';
 
+// TODO: Color mathing type
 const colors = [
   'red',
   'blue',
@@ -14,10 +15,14 @@ const colors = [
   'black'
 ];
 
-// TODO: Color mathing type
-
 // TODO: Fix additional_name can be null
 class Drink extends React.Component {
+  KRperML = KRperML(
+    this.props.result.volume_in_milliliter,
+    parseFloat(this.props.result.alcohol),
+    this.props.result.price.amount
+  );
+
   render() {
     return (
       <Card
@@ -26,16 +31,16 @@ class Drink extends React.Component {
         }
         color={colors[Math.floor(Math.random() * colors.length)]}
         meta={
-          NOKperML(
-            this.props.result.volume_in_milliliter,
-            parseFloat(this.props.result.alcohol),
-            this.props.result.price.amount
-          ) + ' kr per ml alkohol'
+          (this.KRperML >= tubis.SEKperML
+            ? (this.KRperML / tubis.SEKperML).toFixed(2)
+            : (tubis.SEKperML / this.KRperML).toFixed(2)) +
+          ' ganger ' +
+          (this.ratio - tubis.SEKperML >= 0 ? 'dyrere' : 'billigere') +
+          ' enn tubis.'
         }
         description={'Volume: ' + this.props.result.volume_in_milliliter + 'ml'}
       />
     );
   }
 }
-
 export default Drink;
