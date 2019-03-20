@@ -8,7 +8,7 @@ const DrinkList = props => {
   }
 
   const results = props.results.map(result => {
-    return <Drink result={result} />;
+    return <Drink key={result.article_id} result={result} />;
   });
 
   return (
