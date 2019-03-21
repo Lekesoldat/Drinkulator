@@ -1,4 +1,5 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Progress as of 20.03.2019  
+![Progress](./Progress.png)
 
 ## Available Scripts
 
