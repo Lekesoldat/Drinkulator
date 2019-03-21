@@ -39,7 +39,7 @@ class Drink extends React.Component {
             : (tubis.SEKperML / this.KRperML).toFixed(2)) +
           ' ganger ' +
           (this.ratio - tubis.SEKperML >= 0 ? 'dyrere' : 'billigere') +
-          ' enn tubis.'
+          ' enn Tubis.'
         }
         description={'Volume: ' + this.props.result.volume_in_milliliter + 'ml'}
       />
